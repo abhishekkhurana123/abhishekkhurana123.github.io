@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>HTML5 Responsive Rich Media Banner</title>
+		<link rel="stylesheet" href="styles/reset.css"/>
+		<link rel="stylesheet" href="styles/style.css"/>
+		<!--StartOfInjectionAdKitModule--><script type="text/javascript">
+    (function () {
+        adkit = {
+            onReady: function (callback) {
+                window.addEventListener('adkit-ready', callback);
+            }
+        };
+
+        var isAdKitLoaded = false;
+
+        var handler = function (event) {
+            if (!isAdKitLoaded && event.data) {
+                var response;
+                try {
+                    response = JSON.parse(event.data);
+
+                } catch (e) {
+                }
+                if (response &&
+                    response.type === 'ebGetEnvironment' &&
+                    response.data instanceof Object &&
+                    response.data.paths &&
+                    response.data.paths.cachedScript) {
+                    isAdKitLoaded = true;
+                    adkit.environment = response.data;
+                    var parent = document.getElementsByTagName('head')[0] || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    var source = response.data.paths.cachedScript + '/adkit/' + response.data.version + '/adkit.js';
+                    script.src = source.replace(/\/\/adkit/, '/adkit');
+                    parent.appendChild(script);
+                }
+            }
+        };
+
+        if (!window.ebSafeFrame) {
+            window.addEventListener('message', handler, false);
+            parent.postMessage(JSON.stringify({ type: 'ebGetEnvironment' }), '*');
+        } else {
+            // ebSafeFrame is defined - we must be in a SafeFrame
+            // getAdKitData returns an equivalent argument in structure as were received with postmessage binding
+            handler(ebSafeFrame.getAdKitData());
+        }
+    })();
+
+</script>
+
+
+<!--EndOfInjectionAdKitModule--><!--RemoveAdKit-->
+		<script type="text/javascript" src="scripts/localPreview.js"></script>
+		<script src="scripts/script.js"></script>
+	</head>
+	<body>
+		<div id="banner">
+			<div id="label">HTML5 Responsive Rich Media Banner <span id="dimensions"></span></div>
+			<div id="buttons" class="right-aligned bottom-aligned">
+				<button id="user-action-button">User Action</button>
+				<button id="clickthrough-button">Clickthrough</button>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
