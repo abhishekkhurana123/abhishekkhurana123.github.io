@@ -1,0 +1,32 @@
+<script type="text/javascript">
+var recordEvent = function(id, params) {
+   var parentWindow = parent.window.parent.window,
+       eventData = {
+           sproutID: "ajsPrLKRBZyIX3Hx",
+           action: "dummyAction",
+           event: "recordBeacon",
+           data: {
+               id: id,
+               params: params
+           }
+       };
+
+  parentWindow.postMessage(JSON.stringify(eventData), "*");
+};
+</script>
+
+
+<script src="mraid.js"></script><div id="Sprout_ajsPrLKRBZyIX3Hx_div"></div>
+<script type="text/javascript">
+var _Sprout=_Sprout||{};
+
+/* 3rd Party Impression Tracker: a tracking pixel URL for tracking 3rd party impressions */
+_Sprout.impressionTracker = "PUT_IMPRESSION_TRACKER_HERE";
+
+/* 3rd Party Click Tracker: A URL or Macro like %c for third party exit tracking */
+_Sprout.clickTracker = "PUT_CLICK_TRACKER_HERE";
+
+/* Publisher Label: What you want to call this line-item in Studio reports */
+_Sprout.publisherLabel = "PUT_PUBLISHER_LABEL_HERE";
+
+_Sprout._inMobiAdTagTracking={st:new Date().getTime(),rr:0};</script><script type="text/javascript" src="https://i.l.inmobicdn.net/studio/load/ajsPrLKRBZyIX3Hx.mraid.html.js"></script>
