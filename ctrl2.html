@@ -18,6 +18,14 @@
    	</div>
 </body>
 <script type=text/javascript>
+	$(document).ready(function(){
+	zoom = $(window).width()/$("#wrapper").width()*100;
+	document.body.style.zoom = zoom+"%"
+}
+$(window).on('resize', function(){
+	zoom = $(window).width()/$("#wrapper").width()*100;
+	document.body.style.zoom = zoom+"%"
+});
 
     var render_beacon_urls = [""];
     for (var i = 0; i < render_beacon_urls.length; i++) {
