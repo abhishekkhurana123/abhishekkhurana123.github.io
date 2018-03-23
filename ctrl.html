@@ -1,0 +1,33 @@
+<head>
+    <style type=text/css>
+        .mp_center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -160px!important;
+            margin-top: -240px!important
+        }
+    </style>
+</head>
+
+<body style=margin:0;padding:0>
+    <div class=mp_center>
+    	<a href='https://itunes.apple.com/us/app/starbucks/id331177714?mt=8' target='_blank'>
+        <img src='https://i.l.inmobicdn.net/ifctpads/IFC/CCN/assets/Starbucks_RewardsRefresh_FriendlyReminder_English_AppStore_320x480_Static_1521150335.jpg' alt='tap here' width='320' height='480'>
+    	</a>
+   	</div>
+</body>
+<script type=text/javascript>
+
+    var render_beacon_urls = [""];
+    for (var i = 0; i < render_beacon_urls.length; i++) {
+        (new Image()).src = render_beacon_urls[i];
+    }
+    var click_beacon_urls = ["https://vn1-s.tlnk.io/serve?action=click&publisher_id=217731&site_id=58236&agency_id=1345&ref_id=BW_Perf!_!{{AUCTION_ID}}&mac_address_sha1={{USER_ID}}&odin={{USER_ID}}&ios_ifa={{USER_ID}}&sub_campaign={{CAMPAIGN_ID}}&sub_adgroup={{LINE_ITEM_ID}}&sub_ad={{CREATIVE_ID_ALT}}&my_campaign=MSRFY18Q2&","{{CLICK_URL}}"];
+    var container = document.querySelector(".mp_center");
+    document.addEventListener("click", function() {
+        for (var a = 0; a < click_beacon_urls.length; a++) {
+            (new Image()).src = click_beacon_urls[a];
+        }
+    });
+	
