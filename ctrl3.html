@@ -1,0 +1,53 @@
+<head>
+    <style type=text/css>
+        .mp_center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -160px!important;
+            margin-top: -240px!important
+        }
+    </style>
+</head>
+
+<body style=margin:0;padding:0>
+    <div class=mp_center>
+    	<a href='https://www.inmobi.com' target='_blank'>
+        <img src='https://i.l.inmobicdn.net/ifctpads/IFC/CCN/assets/dove_1520575462.jpg' alt='tap here' width='320' height='480'>
+    	</a>
+   	</div>
+</body>
+<script type=text/javascript>
+
+    var render_beacon_urls = [""];
+    var mraidTag= false;
+    var inMobiViewableChange = "viewableChange";
+    var inmobiImpBeaconFired = false;
+
+    var fireTrueViewPixel = function() {
+      for (var i = 0; i < render_beacon_urls.length; i++) {
+          (new Image()).src = render_beacon_urls[i];
+      }
+    }
+
+    if (mraidTag && typeof mraid != "undefined" && mraid != null) {
+      mraid.addEventListener(inMobiViewableChange, handleViewableChange);
+      handleViewableChange()
+    } else {
+      fireTrueViewPixel();
+    }
+
+    var handleViewableChange = function() {
+      if (mraid.isViewable() == true && !inmobiImpBeaconFired) {
+        fireTrueViewPixel();
+        inmobiImpBeaconFired = true;
+        mraid.removeEventListener(inMobiViewableChange, handleViewableChange);
+      }
+    };
+
+    var click_beacon_urls = ["","{{CLICK_URL}}"];
+    document.addEventListener("click", function() {
+      var worker = new Worker('https://i.l.inmobicdn.net/ifctpads/IFC/formats/baseAssets/libraries/click_worker.js');
+      worker.postMessage(click_beacon_urls);
+    });
+</script>
